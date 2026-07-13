@@ -4583,7 +4583,7 @@ static int synaptics_rmi4_dsi_panel_notifier_cb(struct notifier_block *self,
 			container_of(self, struct synaptics_rmi4_data,
 			fb_notifier);
 
-	if (!evdata || (evdata->id != 0))
+	if (!evdata)
 		return 0;
 
 	if (evdata && evdata->data && rmi4_data) {
