@@ -59,7 +59,7 @@ jobs:
           export PATH=$(pwd)/proton-clang/bin:$PATH
           make $KERNEL_CMDLINE $KERNEL_DEFCONFIG CC="ccache clang"
           make $KERNEL_CMDLINE CC="ccache clang" -j$(nproc --all)
-          make $KERNEL_CMDLINE CC="ccache clang" INSTALL_MOD_PATH=out/modules INSTALL_MOD_STRIP=1 modules_install
+          make $KERNEL_CMDLINE CC="ccache clang" INSTALL_MOD_PATH=$(pwd)/out/modules INSTALL_MOD_STRIP=1 modules_install
           cp out/arch/arm64/boot/Image AnyKernel3
           mkdir -p AnyKernel3/modules/vendor/lib/modules
           find out/modules -name "*.ko" -exec cp {} AnyKernel3/modules/vendor/lib/modules/ \;
