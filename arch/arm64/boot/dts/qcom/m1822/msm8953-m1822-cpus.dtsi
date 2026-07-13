@@ -1,0 +1,324 @@
+	cpus {
+		#address-cells = <0x02>;
+		#size-cells = <0x00>;
+
+		CPU4: cpu@100 {
+			compatible = "arm,armv8";
+			device_type = "cpu";
+			sched-energy-costs = <0x0d 0x0e>;
+			next-level-cache = <0x0f>;
+			enable-method = "psci";
+			phandle = <0x06>;
+			reg = <0x00 0x100>;
+			#cooling-cells = <0x02>;
+			linux,phandle = <0x06>;
+			efficiency = <0x666>;
+
+			L1_I_100: l1-icache {
+				compatible = "arm,arch-cache";
+				phandle = <0x15>;
+				qcom,dump-size = <0x12000>;
+				linux,phandle = <0x15>;
+			};
+
+			L1_TLB_100: l1-tlb {
+				phandle = <0x25>;
+				qcom,dump-size = <0x4800>;
+				linux,phandle = <0x25>;
+			};
+
+			L1_D_100: l1-dcache {
+				compatible = "arm,arch-cache";
+				phandle = <0x1d>;
+				qcom,dump-size = <0x9040>;
+				linux,phandle = <0x1d>;
+			};
+
+			L2_1: l2-cache {
+				compatible = "arm,arch-cache";
+				cache-level = <0x02>;
+				phandle = <0x0f>;
+				linux,phandle = <0x0f>;
+			};
+		};
+
+		CPU6: cpu@102 {
+			compatible = "arm,cortex-a53", "arm,armv8";
+			device_type = "cpu";
+			sched-energy-costs = <0x0d 0x0e>;
+			next-level-cache = <0x0f>;
+			enable-method = "psci";
+			phandle = <0x08>;
+			reg = <0x00 0x102>;
+			#cooling-cells = <0x02>;
+			linux,phandle = <0x08>;
+			efficiency = <0x666>;
+
+			L1_I_102: l1-icache {
+				compatible = "arm,arch-cache";
+				phandle = <0x17>;
+				qcom,dump-size = <0x12000>;
+				linux,phandle = <0x17>;
+			};
+
+			L1_TLB_102: l1-tlb {
+				phandle = <0x27>;
+				qcom,dump-size = <0x4800>;
+				linux,phandle = <0x27>;
+			};
+
+			L1_D_102: l1-dcache {
+				compatible = "arm,arch-cache";
+				phandle = <0x1f>;
+				qcom,dump-size = <0x9040>;
+				linux,phandle = <0x1f>;
+			};
+		};
+
+		CPU0: cpu@0 {
+			compatible = "arm,armv8";
+			device_type = "cpu";
+			sched-energy-costs = <0x0a 0x0b>;
+			next-level-cache = <0x0c>;
+			enable-method = "psci";
+			phandle = <0x02>;
+			reg = <0x00 0x00>;
+			#cooling-cells = <0x02>;
+			linux,phandle = <0x02>;
+			efficiency = <0x400>;
+
+			L1_I_0: l1-icache {
+				compatible = "arm,arch-cache";
+				phandle = <0x11>;
+				qcom,dump-size = <0x9040>;
+				linux,phandle = <0x11>;
+			};
+
+			L1_TLB_0: l1-tlb {
+				phandle = <0x21>;
+				qcom,dump-size = <0x2800>;
+				linux,phandle = <0x21>;
+			};
+
+			L1_D_0: l1-dcache {
+				compatible = "arm,arch-cache";
+				phandle = <0x19>;
+				qcom,dump-size = <0x9040>;
+				linux,phandle = <0x19>;
+			};
+
+			L2_0: l2-cache {
+				compatible = "arm,arch-cache";
+				cache-level = <0x02>;
+				phandle = <0x0c>;
+				qcom,dump-size = <0x00>;
+				linux,phandle = <0x0c>;
+			};
+		};
+
+		CPU2: cpu@2 {
+			compatible = "arm,armv8";
+			device_type = "cpu";
+			sched-energy-costs = <0x0a 0x0b>;
+			next-level-cache = <0x0c>;
+			enable-method = "psci";
+			phandle = <0x04>;
+			reg = <0x00 0x02>;
+			#cooling-cells = <0x02>;
+			linux,phandle = <0x04>;
+			efficiency = <0x400>;
+
+			L1_I_2: l1-icache {
+				compatible = "arm,arch-cache";
+				phandle = <0x13>;
+				qcom,dump-size = <0x9040>;
+				linux,phandle = <0x13>;
+			};
+
+			L1_TLB_2: l1-tlb {
+				phandle = <0x23>;
+				qcom,dump-size = <0x2800>;
+				linux,phandle = <0x23>;
+			};
+
+			L1_D_2: l1-dcache {
+				compatible = "arm,arch-cache";
+				phandle = <0x1b>;
+				qcom,dump-size = <0x9040>;
+				linux,phandle = <0x1b>;
+			};
+		};
+
+		cpu-map {
+
+			cluster0 {
+
+				core2 {
+					cpu = <0x04>;
+				};
+
+				core1 {
+					cpu = <0x03>;
+				};
+
+				core3 {
+					cpu = <0x05>;
+				};
+
+				core0 {
+					cpu = <0x02>;
+				};
+			};
+
+			cluster1 {
+
+				core2 {
+					cpu = <0x08>;
+				};
+
+				core1 {
+					cpu = <0x07>;
+				};
+
+				core3 {
+					cpu = <0x09>;
+				};
+
+				core0 {
+					cpu = <0x06>;
+				};
+			};
+		};
+
+		CPU5: cpu@101 {
+			compatible = "arm,cortex-a53", "arm,armv8";
+			device_type = "cpu";
+			sched-energy-costs = <0x0d 0x0e>;
+			next-level-cache = <0x0f>;
+			enable-method = "psci";
+			phandle = <0x07>;
+			reg = <0x00 0x101>;
+			#cooling-cells = <0x02>;
+			linux,phandle = <0x07>;
+			efficiency = <0x666>;
+
+			L1_I_101: l1-icache {
+				compatible = "arm,arch-cache";
+				phandle = <0x16>;
+				qcom,dump-size = <0x12000>;
+				linux,phandle = <0x16>;
+			};
+
+			L1_TLB_101: l1-tlb {
+				phandle = <0x26>;
+				qcom,dump-size = <0x4800>;
+				linux,phandle = <0x26>;
+			};
+
+			L1_D_101: l1-dcache {
+				compatible = "arm,arch-cache";
+				phandle = <0x1e>;
+				qcom,dump-size = <0x9040>;
+				linux,phandle = <0x1e>;
+			};
+		};
+
+		CPU7: cpu@103 {
+			compatible = "arm,cortex-a53", "arm,armv8";
+			device_type = "cpu";
+			sched-energy-costs = <0x0d 0x0e>;
+			next-level-cache = <0x0f>;
+			enable-method = "psci";
+			phandle = <0x09>;
+			reg = <0x00 0x103>;
+			#cooling-cells = <0x02>;
+			linux,phandle = <0x09>;
+			efficiency = <0x666>;
+
+			L1_I_103: l1-icache {
+				compatible = "arm,arch-cache";
+				phandle = <0x18>;
+				qcom,dump-size = <0x12000>;
+				linux,phandle = <0x18>;
+			};
+
+			L1_TLB_103: l1-tlb {
+				phandle = <0x28>;
+				qcom,dump-size = <0x4800>;
+				linux,phandle = <0x28>;
+			};
+
+			L1_D_103: l1-dcache {
+				compatible = "arm,arch-cache";
+				phandle = <0x20>;
+				qcom,dump-size = <0x9040>;
+				linux,phandle = <0x20>;
+			};
+		};
+
+		CPU1: cpu@1 {
+			compatible = "arm,armv8";
+			device_type = "cpu";
+			sched-energy-costs = <0x0a 0x0b>;
+			next-level-cache = <0x0c>;
+			enable-method = "psci";
+			phandle = <0x03>;
+			reg = <0x00 0x01>;
+			#cooling-cells = <0x02>;
+			linux,phandle = <0x03>;
+			efficiency = <0x400>;
+
+			L1_I_1: l1-icache {
+				compatible = "arm,arch-cache";
+				phandle = <0x12>;
+				qcom,dump-size = <0x9040>;
+				linux,phandle = <0x12>;
+			};
+
+			L1_TLB_1: l1-tlb {
+				phandle = <0x22>;
+				qcom,dump-size = <0x2800>;
+				linux,phandle = <0x22>;
+			};
+
+			L1_D_1: l1-dcache {
+				compatible = "arm,arch-cache";
+				phandle = <0x1a>;
+				qcom,dump-size = <0x9040>;
+				linux,phandle = <0x1a>;
+			};
+		};
+
+		CPU3: cpu@3 {
+			compatible = "arm,armv8";
+			device_type = "cpu";
+			sched-energy-costs = <0x0a 0x0b>;
+			next-level-cache = <0x0c>;
+			enable-method = "psci";
+			phandle = <0x05>;
+			reg = <0x00 0x03>;
+			#cooling-cells = <0x02>;
+			linux,phandle = <0x05>;
+			efficiency = <0x400>;
+
+			L1_I_3: l1-icache {
+				compatible = "arm,arch-cache";
+				phandle = <0x14>;
+				qcom,dump-size = <0x9040>;
+				linux,phandle = <0x14>;
+			};
+
+			L1_TLB_3: l1-tlb {
+				phandle = <0x24>;
+				qcom,dump-size = <0x2800>;
+				linux,phandle = <0x24>;
+			};
+
+			L1_D_3: l1-dcache {
+				compatible = "arm,arch-cache";
+				phandle = <0x1c>;
+				qcom,dump-size = <0x9040>;
+				linux,phandle = <0x1c>;
+			};
+		};
+	};

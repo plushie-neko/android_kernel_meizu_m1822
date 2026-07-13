@@ -1,0 +1,566 @@
+		rpm_bus: qcom,rpm-smd {
+			rpm-channel-name = "rpm_requests";
+			compatible = "qcom,rpm-smd";
+			rpm-channel-type = <0x0f>;
+			phandle = <0x27d>;
+			linux,phandle = <0x27d>;
+
+			rpm-regulator-clk0 {
+				compatible = "qcom,rpm-smd-regulator-resource";
+				qcom,resource-name = "clk0";
+				status = "disabled";
+				qcom,regulator-type = <0x01>;
+				qcom,resource-id = <0x03>;
+
+				regulator-clk0 {
+					compatible = "qcom,rpm-smd-regulator";
+					status = "disabled";
+					qcom,set = <0x03>;
+					regulator-name = "rpm_apc";
+				};
+			};
+
+			rpm-regulator-ldoa6 {
+				compatible = "qcom,rpm-smd-regulator-resource";
+				qcom,resource-name = "ldoa";
+				status = "okay";
+				qcom,hpm-min-load = <0x2710>;
+				qcom,regulator-type = <0x00>;
+				qcom,resource-id = <0x06>;
+
+				pm8953_l6: regulator-l6 {
+					compatible = "qcom,rpm-smd-regulator";
+					status = "okay";
+					phandle = <0x2e2>;
+					qcom,init-voltage = <0x1b7740>;
+					regulator-min-microvolt = <0x1b7740>;
+					qcom,set = <0x03>;
+					regulator-max-microvolt = <0x1b7740>;
+					regulator-always-on;
+					regulator-name = "pm8953_l6";
+					linux,phandle = <0x2e2>;
+				};
+			};
+
+			rpm-regulator-smpa1 {
+				compatible = "qcom,rpm-smd-regulator-resource";
+				qcom,resource-name = "smpa";
+				status = "okay";
+				qcom,hpm-min-load = <0x186a0>;
+				qcom,regulator-type = <0x01>;
+				qcom,resource-id = <0x01>;
+
+				pm8953_s1: regulator-s1 {
+					compatible = "qcom,rpm-smd-regulator";
+					qcom,use-voltage-level;
+					status = "okay";
+					phandle = <0x137>;
+					regulator-min-microvolt = <0x10>;
+					qcom,set = <0x03>;
+					regulator-max-microvolt = <0x180>;
+					regulator-name = "pm8953_s1";
+					linux,phandle = <0x137>;
+				};
+			};
+
+			rpm-regulator-ldoa11 {
+				compatible = "qcom,rpm-smd-regulator-resource";
+				qcom,resource-name = "ldoa";
+				status = "okay";
+				qcom,hpm-min-load = <0x2710>;
+				qcom,regulator-type = <0x00>;
+				qcom,resource-id = <0x0b>;
+
+				pm8953_l11: regulator-l11 {
+					compatible = "qcom,rpm-smd-regulator";
+					status = "okay";
+					phandle = <0x286>;
+					qcom,init-voltage = <0x2d0370>;
+					regulator-min-microvolt = <0x2d0370>;
+					qcom,set = <0x03>;
+					regulator-max-microvolt = <0x2d0370>;
+					regulator-name = "pm8953_l11";
+					linux,phandle = <0x286>;
+				};
+			};
+
+			rpm-regulator-ldoa8 {
+				compatible = "qcom,rpm-smd-regulator-resource";
+				qcom,resource-name = "ldoa";
+				status = "okay";
+				qcom,hpm-min-load = <0x2710>;
+				qcom,regulator-type = <0x00>;
+				qcom,resource-id = <0x08>;
+
+				pm8953_l8: regulator-l8 {
+					compatible = "qcom,rpm-smd-regulator";
+					status = "okay";
+					phandle = <0x284>;
+					qcom,init-voltage = <0x2c4020>;
+					regulator-min-microvolt = <0x2c4020>;
+					qcom,set = <0x03>;
+					regulator-max-microvolt = <0x2c4020>;
+					regulator-name = "pm8953_l8";
+					linux,phandle = <0x284>;
+				};
+			};
+
+			rpm-regulator-smpa3 {
+				compatible = "qcom,rpm-smd-regulator-resource";
+				qcom,resource-name = "smpa";
+				status = "okay";
+				qcom,hpm-min-load = <0x186a0>;
+				qcom,regulator-type = <0x01>;
+				qcom,resource-id = <0x03>;
+
+				pm8953_s3: regulator-s3 {
+					compatible = "qcom,rpm-smd-regulator";
+					status = "okay";
+					phandle = <0xae>;
+					qcom,init-voltage = <0xf03c0>;
+					regulator-min-microvolt = <0xf03c0>;
+					qcom,set = <0x03>;
+					regulator-max-microvolt = <0x12ebc0>;
+					regulator-name = "pm8953_s3";
+					linux,phandle = <0xae>;
+				};
+			};
+
+			rpm-regulator-ldoa13 {
+				compatible = "qcom,rpm-smd-regulator-resource";
+				qcom,resource-name = "ldoa";
+				status = "okay";
+				qcom,hpm-min-load = <0x1388>;
+				qcom,regulator-type = <0x00>;
+				qcom,resource-id = <0x0d>;
+
+				pm8953_l13: regulator-l13 {
+					compatible = "qcom,rpm-smd-regulator";
+					status = "okay";
+					phandle = <0x11a>;
+					qcom,init-voltage = <0x2faf08>;
+					regulator-min-microvolt = <0x2faf08>;
+					qcom,set = <0x03>;
+					regulator-max-microvolt = <0x2faf08>;
+					regulator-name = "pm8953_l13";
+					linux,phandle = <0x11a>;
+				};
+			};
+
+			rpm-regulator-ldoa23 {
+				compatible = "qcom,rpm-smd-regulator-resource";
+				qcom,resource-name = "ldoa";
+				status = "okay";
+				qcom,hpm-min-load = <0x2710>;
+				qcom,regulator-type = <0x00>;
+				qcom,resource-id = <0x17>;
+
+				pm8953_l23: regulator-l23 {
+					compatible = "qcom,rpm-smd-regulator";
+					status = "okay";
+					phandle = <0x28a>;
+					qcom,init-voltage = <0xee098>;
+					regulator-min-microvolt = <0xee098>;
+					qcom,set = <0x03>;
+					regulator-max-microvolt = <0x12b128>;
+					regulator-name = "pm8953_l23";
+					linux,phandle = <0x28a>;
+				};
+			};
+
+			rpm-regulator-ldoa1 {
+				compatible = "qcom,rpm-smd-regulator-resource";
+				qcom,resource-name = "ldoa";
+				status = "okay";
+				qcom,hpm-min-load = <0x2710>;
+				qcom,regulator-type = <0x00>;
+				qcom,resource-id = <0x01>;
+
+				pm8953_l1: regulator-l1 {
+					compatible = "qcom,rpm-smd-regulator";
+					status = "okay";
+					phandle = <0x281>;
+					qcom,init-voltage = <0xee098>;
+					regulator-min-microvolt = <0xee098>;
+					qcom,set = <0x03>;
+					regulator-max-microvolt = <0x100590>;
+					regulator-name = "pm8953_l1";
+					linux,phandle = <0x281>;
+				};
+			};
+
+			rpm-regulator-smpa7 {
+				compatible = "qcom,rpm-smd-regulator-resource";
+				qcom,resource-name = "smpa";
+				status = "okay";
+				qcom,hpm-min-load = <0x186a0>;
+				qcom,regulator-type = <0x01>;
+				qcom,resource-id = <0x07>;
+
+				regulator-s7 {
+					compatible = "qcom,rpm-smd-regulator";
+					status = "disabled";
+					qcom,set = <0x03>;
+					regulator-name = "pm8953_s7";
+				};
+
+				pm8953_s7_level: regulator-s7-level {
+					compatible = "qcom,rpm-smd-regulator";
+					qcom,init-voltage-level = <0x10>;
+					qcom,use-voltage-level;
+					qcom,always-send-voltage;
+					phandle = <0x27f>;
+					regulator-min-microvolt = <0x10>;
+					qcom,set = <0x03>;
+					regulator-max-microvolt = <0x180>;
+					regulator-name = "pm8953_s7_level";
+					linux,phandle = <0x27f>;
+				};
+
+				pm8953_s7_level_ao: regulator-s7-level-ao {
+					compatible = "qcom,rpm-smd-regulator";
+					qcom,use-voltage-level;
+					qcom,always-send-voltage;
+					phandle = <0x11d>;
+					regulator-min-microvolt = <0x10>;
+					qcom,set = <0x01>;
+					regulator-max-microvolt = <0x180>;
+					regulator-name = "pm8953_s7_level_ao";
+					linux,phandle = <0x11d>;
+				};
+
+				pm8953_s7_level_so: regulator-s7-level-so {
+					compatible = "qcom,rpm-smd-regulator";
+					qcom,init-voltage-level = <0x10>;
+					qcom,use-voltage-level;
+					phandle = <0x280>;
+					regulator-min-microvolt = <0x10>;
+					qcom,set = <0x02>;
+					regulator-max-microvolt = <0x180>;
+					regulator-name = "pm8953_s7_level_so";
+					linux,phandle = <0x280>;
+				};
+			};
+
+			rpm-regulator-ldoa17 {
+				compatible = "qcom,rpm-smd-regulator-resource";
+				qcom,resource-name = "ldoa";
+				status = "okay";
+				qcom,hpm-min-load = <0x2710>;
+				qcom,regulator-type = <0x00>;
+				qcom,resource-id = <0x11>;
+
+				pm8953_l17: regulator-l17 {
+					compatible = "qcom,rpm-smd-regulator";
+					status = "okay";
+					phandle = <0xb5>;
+					qcom,init-voltage = <0x2b7cd0>;
+					regulator-min-microvolt = <0x2b7cd0>;
+					qcom,set = <0x03>;
+					regulator-max-microvolt = <0x2b7cd0>;
+					regulator-name = "pm8953_l17";
+					linux,phandle = <0xb5>;
+				};
+			};
+
+			rpm-regulator-ldoa3 {
+				compatible = "qcom,rpm-smd-regulator-resource";
+				qcom,resource-name = "ldoa";
+				status = "okay";
+				qcom,hpm-min-load = <0x2710>;
+				qcom,regulator-type = <0x00>;
+				qcom,resource-id = <0x03>;
+
+				pm8953_l3: regulator-l3 {
+					compatible = "qcom,rpm-smd-regulator";
+					status = "okay";
+					phandle = <0xaf>;
+					qcom,init-voltage = <0xe1d48>;
+					regulator-min-microvolt = <0xe1d48>;
+					qcom,set = <0x03>;
+					regulator-max-microvolt = <0xe1d48>;
+					regulator-name = "pm8953_l3";
+					linux,phandle = <0xaf>;
+				};
+			};
+
+			rpm-regulator-ldoa19 {
+				compatible = "qcom,rpm-smd-regulator-resource";
+				qcom,resource-name = "ldoa";
+				status = "okay";
+				qcom,hpm-min-load = <0x2710>;
+				qcom,regulator-type = <0x00>;
+				qcom,resource-id = <0x13>;
+
+				pm8953_l19: regulator-l19 {
+					compatible = "qcom,rpm-smd-regulator";
+					status = "okay";
+					phandle = <0x142>;
+					qcom,init-voltage = <0x124f80>;
+					regulator-min-microvolt = <0x124f80>;
+					qcom,set = <0x03>;
+					regulator-max-microvolt = <0x149970>;
+					regulator-name = "pm8953_l19";
+					linux,phandle = <0x142>;
+				};
+			};
+
+			rpm-regulator-ldoa5 {
+				compatible = "qcom,rpm-smd-regulator-resource";
+				qcom,resource-name = "ldoa";
+				status = "okay";
+				qcom,hpm-min-load = <0x2710>;
+				qcom,regulator-type = <0x00>;
+				qcom,resource-id = <0x05>;
+
+				pm8953_l5: regulator-l5 {
+					compatible = "qcom,rpm-smd-regulator";
+					status = "okay";
+					phandle = <0xb3>;
+					qcom,init-voltage = <0x1b7740>;
+					regulator-min-microvolt = <0x1b7740>;
+					qcom,set = <0x03>;
+					regulator-max-microvolt = <0x1b7740>;
+					regulator-name = "pm8953_l5";
+					linux,phandle = <0xb3>;
+				};
+			};
+
+			rpm-regulator-ldoa10 {
+				compatible = "qcom,rpm-smd-regulator-resource";
+				qcom,resource-name = "ldoa";
+				status = "okay";
+				qcom,hpm-min-load = <0x2710>;
+				qcom,regulator-type = <0x00>;
+				qcom,resource-id = <0x0a>;
+
+				pm8953_l10: regulator-l10 {
+					compatible = "qcom,rpm-smd-regulator";
+					status = "okay";
+					phandle = <0x285>;
+					qcom,init-voltage = <0x2ab980>;
+					regulator-min-microvolt = <0x2ab980>;
+					qcom,set = <0x03>;
+					regulator-max-microvolt = <0x2dc6c0>;
+					regulator-name = "pm8953_l10";
+					linux,phandle = <0x285>;
+				};
+			};
+
+			rpm-regulator-ldoa7 {
+				compatible = "qcom,rpm-smd-regulator-resource";
+				qcom,resource-name = "ldoa";
+				status = "okay";
+				qcom,hpm-min-load = <0x2710>;
+				qcom,regulator-type = <0x00>;
+				qcom,resource-id = <0x07>;
+
+				pm8953_l7: regulator-l7 {
+					compatible = "qcom,rpm-smd-regulator";
+					status = "okay";
+					phandle = <0x136>;
+					qcom,init-voltage = <0x1b7740>;
+					regulator-min-microvolt = <0x1b7740>;
+					qcom,set = <0x03>;
+					regulator-max-microvolt = <0x1cfde0>;
+					regulator-name = "pm8953_l7";
+					linux,phandle = <0x136>;
+				};
+
+				pm8953_l7_ao: regulator-l7-ao {
+					compatible = "qcom,rpm-smd-regulator";
+					phandle = <0x283>;
+					qcom,init-voltage = <0x1b7740>;
+					regulator-min-microvolt = <0x1b7740>;
+					qcom,set = <0x01>;
+					regulator-max-microvolt = <0x1cfde0>;
+					regulator-name = "pm8953_l7_ao";
+					linux,phandle = <0x283>;
+				};
+			};
+
+			rpm-regulator-smpa2 {
+				compatible = "qcom,rpm-smd-regulator-resource";
+				qcom,resource-name = "smpa";
+				status = "okay";
+				qcom,hpm-min-load = <0x186a0>;
+				qcom,regulator-type = <0x01>;
+				qcom,resource-id = <0x02>;
+
+				pm8953_s2_level_ao: regulator-s2-level-ao {
+					compatible = "qcom,rpm-smd-regulator";
+					qcom,use-voltage-level;
+					phandle = <0x27e>;
+					regulator-min-microvolt = <0x10>;
+					qcom,set = <0x01>;
+					regulator-max-microvolt = <0x180>;
+					regulator-name = "pm8953_s2_level_ao";
+					linux,phandle = <0x27e>;
+				};
+
+				pm8953_s2_level: regulator-s2-level {
+					compatible = "qcom,rpm-smd-regulator";
+					qcom,use-voltage-level;
+					phandle = <0x11b>;
+					regulator-min-microvolt = <0x10>;
+					qcom,set = <0x03>;
+					regulator-max-microvolt = <0x180>;
+					regulator-name = "pm8953_s2_level";
+					linux,phandle = <0x11b>;
+				};
+
+				regulator-s2 {
+					compatible = "qcom,rpm-smd-regulator";
+					status = "disabled";
+					qcom,set = <0x03>;
+					regulator-name = "pm8953_s2";
+				};
+
+				pm8953_s2_floor_level: regulator-s2-floor-level {
+					compatible = "qcom,rpm-smd-regulator";
+					qcom,use-voltage-floor-level;
+					qcom,always-send-voltage;
+					phandle = <0x123>;
+					regulator-min-microvolt = <0x10>;
+					qcom,set = <0x03>;
+					regulator-max-microvolt = <0x180>;
+					regulator-name = "pm8953_s2_floor_level";
+					linux,phandle = <0x123>;
+				};
+
+				cx_cdev: regulator-cx-cdev {
+					regulator-cdev-supply = <0x123>;
+					compatible = "qcom,regulator-cooling-device";
+					regulator-levels = <0x100 0x10>;
+					phandle = <0xcf>;
+					#cooling-cells = <0x02>;
+					linux,phandle = <0xcf>;
+				};
+			};
+
+			rpm-regulator-ldoa12 {
+				compatible = "qcom,rpm-smd-regulator-resource";
+				qcom,resource-name = "ldoa";
+				status = "okay";
+				qcom,hpm-min-load = <0x2710>;
+				qcom,regulator-type = <0x00>;
+				qcom,resource-id = <0x0c>;
+
+				pm8953_l12: regulator-l12 {
+					compatible = "qcom,rpm-smd-regulator";
+					status = "okay";
+					phandle = <0x287>;
+					qcom,init-voltage = <0x1b7740>;
+					regulator-min-microvolt = <0x1b7740>;
+					qcom,set = <0x03>;
+					regulator-max-microvolt = <0x2d0370>;
+					regulator-name = "pm8953_l12";
+					linux,phandle = <0x287>;
+				};
+			};
+
+			rpm-regulator-ldoa22 {
+				compatible = "qcom,rpm-smd-regulator-resource";
+				qcom,resource-name = "ldoa";
+				status = "okay";
+				qcom,hpm-min-load = <0x2710>;
+				qcom,regulator-type = <0x00>;
+				qcom,resource-id = <0x16>;
+
+				pm8953_l22: regulator-l22 {
+					compatible = "qcom,rpm-smd-regulator";
+					status = "okay";
+					phandle = <0x289>;
+					qcom,init-voltage = <0x2ab980>;
+					regulator-min-microvolt = <0x2ab980>;
+					qcom,set = <0x03>;
+					regulator-max-microvolt = <0x2ab980>;
+					regulator-name = "pm8953_l22";
+					linux,phandle = <0x289>;
+				};
+			};
+
+			rpm-regulator-ldoa9 {
+				compatible = "qcom,rpm-smd-regulator-resource";
+				qcom,resource-name = "ldoa";
+				status = "okay";
+				qcom,hpm-min-load = <0x2710>;
+				qcom,regulator-type = <0x00>;
+				qcom,resource-id = <0x09>;
+
+				pm8953_l9: regulator-l9 {
+					compatible = "qcom,rpm-smd-regulator";
+					status = "okay";
+					phandle = <0x143>;
+					qcom,init-voltage = <0x2dc6c0>;
+					regulator-min-microvolt = <0x2dc6c0>;
+					qcom,set = <0x03>;
+					regulator-max-microvolt = <0x325aa0>;
+					regulator-name = "pm8953_l9";
+					linux,phandle = <0x143>;
+				};
+			};
+
+			rpm-regulator-smpa4 {
+				compatible = "qcom,rpm-smd-regulator-resource";
+				qcom,resource-name = "smpa";
+				status = "okay";
+				qcom,hpm-min-load = <0x186a0>;
+				qcom,regulator-type = <0x01>;
+				qcom,resource-id = <0x04>;
+
+				pm8953_s4: regulator-s4 {
+					compatible = "qcom,rpm-smd-regulator";
+					status = "okay";
+					phandle = <0x128>;
+					qcom,init-voltage = <0xfcee0>;
+					regulator-min-microvolt = <0xfcee0>;
+					qcom,set = <0x03>;
+					regulator-max-microvolt = <0x1f20c0>;
+					regulator-name = "pm8953_s4";
+					linux,phandle = <0x128>;
+				};
+			};
+
+			rpm-regulator-ldoa16 {
+				compatible = "qcom,rpm-smd-regulator-resource";
+				qcom,resource-name = "ldoa";
+				status = "okay";
+				qcom,hpm-min-load = <0x1388>;
+				qcom,regulator-type = <0x00>;
+				qcom,resource-id = <0x10>;
+
+				pm8953_l16: regulator-l16 {
+					compatible = "qcom,rpm-smd-regulator";
+					status = "okay";
+					phandle = <0x288>;
+					qcom,init-voltage = <0x1b7740>;
+					regulator-min-microvolt = <0x1b7740>;
+					qcom,set = <0x03>;
+					regulator-max-microvolt = <0x1b7740>;
+					regulator-name = "pm8953_l16";
+					linux,phandle = <0x288>;
+				};
+			};
+
+			rpm-regulator-ldoa2 {
+				compatible = "qcom,rpm-smd-regulator-resource";
+				qcom,resource-name = "ldoa";
+				status = "okay";
+				qcom,hpm-min-load = <0x2710>;
+				qcom,regulator-type = <0x00>;
+				qcom,resource-id = <0x02>;
+
+				pm8953_l2: regulator-l2 {
+					compatible = "qcom,rpm-smd-regulator";
+					status = "okay";
+					phandle = <0x282>;
+					qcom,init-voltage = <0xee098>;
+					regulator-min-microvolt = <0xee098>;
+					qcom,set = <0x03>;
+					regulator-max-microvolt = <0x11edd8>;
+					regulator-name = "pm8953_l2";
+					linux,phandle = <0x282>;
+				};
+			};
+		};

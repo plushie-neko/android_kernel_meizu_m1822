@@ -1,0 +1,25 @@
+		ext_codec: sound-9335 {
+			asoc-platform = <0x15a 0x15b 0x15c 0x15d 0x15e 0x15f 0x160 0x161 0x162 0x163 0x164 0x196 0x197 0x165>;
+			asoc-codec-names = "msm-stub-codec.1", "msm-hdmi-dba-codec-rx";
+			compatible = "qcom,msm8952-audio-slim-codec";
+			qcom,audio-routing = "AIF4 VI", "MCLK", "AIF4 VI", "MICBIAS_REGULATOR", "RX_BIAS", "MCLK", "MADINPUT", "MCLK", "AIF4 MAD", "MICBIAS_REGULATOR", "AMIC2", "MIC BIAS2", "MIC BIAS2", "Headset Mic", "AMIC3", "MIC BIAS2", "MIC BIAS2", "ANCRight Headset Mic", "AMIC4", "MIC BIAS2", "MIC BIAS2", "ANCLeft Headset Mic", "AMIC5", "MIC BIAS3", "MIC BIAS3", "Handset Mic", "AMIC6", "MIC BIAS4", "MIC BIAS4", "Analog Mic6", "DMIC0", "MIC BIAS1", "MIC BIAS1", "Digital Mic0", "DMIC1", "MIC BIAS1", "MIC BIAS1", "Digital Mic1", "DMIC2", "MIC BIAS3", "MIC BIAS3", "Digital Mic2", "DMIC3", "MIC BIAS3", "MIC BIAS3", "Digital Mic3", "DMIC4", "MIC BIAS4", "MIC BIAS4", "Digital Mic4", "DMIC5", "MIC BIAS4", "MIC BIAS4", "Digital Mic5", "MIC BIAS1", "MICBIAS_REGULATOR", "MIC BIAS2", "MICBIAS_REGULATOR", "MIC BIAS3", "MICBIAS_REGULATOR", "MIC BIAS4", "MICBIAS_REGULATOR", "SpkrLeft IN", "SPK1 OUT", "SpkrRight IN", "SPK2 OUT";
+			qcom,cdc-us-euro-gpios = <0xc3 0x3f 0x00>;
+			reg-names = "csr_gp_io_mux_mic_ctl", "csr_gp_io_mux_spkr_ctl", "csr_gp_io_lpaif_pri_pcm_pri_mode_muxsel", "csr_gp_io_mux_quin_ctl";
+			asoc-codec = <0x181 0x19d>;
+			qcom,wsa-devs = <0x19e 0x19f 0x1a0 0x1a1>;
+			qcom,model = "msm8953-tasha-snd-card";
+			qcom,quin-mi2s-gpios = <0x159>;
+			status = "disabled";
+			qcom,msm-mbhc-gnd-swh = <0x00>;
+			asoc-cpu-names = "msm-dai-q6-auxpcm.1", "msm-dai-q6-mi2s.2", "msm-dai-q6-mi2s.3", "msm-dai-q6-mi2s.5", "msm-dai-q6-dev.16384", "msm-dai-q6-dev.16385", "msm-dai-q6-dev.16386", "msm-dai-q6-dev.16387", "msm-dai-q6-dev.16388", "msm-dai-q6-dev.16389", "msm-dai-q6-dev.16390", "msm-dai-q6-dev.16391", "msm-dai-q6-dev.16392", "msm-dai-q6-dev.16393", "msm-dai-q6-dev.16395", "msm-dai-q6-dev.224", "msm-dai-q6-dev.225", "msm-dai-q6-dev.241", "msm-dai-q6-dev.240", "msm-dai-q6-dev.32771", "msm-dai-q6-dev.32772", "msm-dai-q6-dev.32773", "msm-dai-q6-dev.32770", "msm-dai-q6-dev.16394", "msm-dai-q6-dev.12288", "msm-dai-q6-dev.12289", "msm-dai-q6-dev.12292", "msm-dai-q6-dev.12293", "msm-dai-q6-dev.16396";
+			phandle = <0x2d5>;
+			reg = <0xc051000 0x04 0xc051004 0x04 0xc055000 0x04 0xc052000 0x04>;
+			qcom,tasha-mclk-clk-freq = <0x927c00>;
+			asoc-platform-names = "msm-pcm-dsp.0", "msm-pcm-dsp.1", "msm-pcm-dsp.2", "msm-voip-dsp", "msm-pcm-voice", "msm-pcm-loopback", "msm-compress-dsp", "msm-pcm-hostless", "msm-pcm-afe", "msm-lsm-client", "msm-pcm-routing", "msm-cpe-lsm", "msm-compr-dsp", "msm-pcm-dsp-noirq";
+			qcom,msm-mbhc-hphl-swh = <0x00>;
+			qcom,cdc-us-eu-gpios = <0x156>;
+			linux,phandle = <0x2d5>;
+			qcom,wsa-max-devs = <0x02>;
+			qcom,wsa-aux-dev-prefix = "SpkrLeft", "SpkrRight", "SpkrLeft", "SpkrRight";
+			asoc-cpu = <0x166 0x169 0x16a 0x16c 0x16d 0x16e 0x16f 0x170 0x198 0x199 0x171 0x172 0x173 0x174 0x19a 0x179 0x17a 0x17b 0x17c 0x17d 0x17e 0x17f 0x180 0x19b 0x175 0x176 0x177 0x178 0x19c>;
+		};
