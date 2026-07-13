@@ -13032,7 +13032,7 @@
 			vdd_mx-supply = <0x11d>;
 			interrupts = <0x00 0x18 0x01>;
 			vdd_mx-uV = <0x180>;
-			memory-region = <0x13a>;
+			memory-region = <0x895301 0x13a>;
 			qcom,reset-clk;
 			qcom,vdd_pll = <0x1b7740>;
 			qcom,ssctl-instance-id = <0x12>;
@@ -15367,6 +15367,14 @@
 			phandle = <0xb9>;
 			reg = <0x00 0x90000000 0x00 0x1000>;
 			linux,phandle = <0xb9>;
+		};
+
+		mba_mem: mba_region@0 {
+			compatible = "removed-dma-pool";
+			no-map;
+			phandle = <0x895301>;
+			reg = <0x00 0xf3100000 0x00 0x100000>;
+			linux,phandle = <0x895301>;
 		};
 
 		modem_mem: modem_region@0 {
