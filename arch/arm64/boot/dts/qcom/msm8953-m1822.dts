@@ -13032,7 +13032,7 @@
 			vdd_mx-supply = <0x11d>;
 			interrupts = <0x00 0x18 0x01>;
 			vdd_mx-uV = <0x180>;
-			memory-region = <0x895301 0x13a>;
+			memory-region = <0x13a>;
 			qcom,reset-clk;
 			qcom,vdd_pll = <0x1b7740>;
 			qcom,ssctl-instance-id = <0x12>;
@@ -13042,6 +13042,11 @@
 			qcom,gpio-force-stop = <0x139 0x00 0x00>;
 			qcom,sysmon-id = <0x00>;
 			qcom,qdsp6v56-1-10;
+
+			qcom,mba_mem@0 {
+				compatible = "qcom,pil-mba-mem";
+				memory-region = <0x895301>;
+			};
 		};
 
 		blsp1_uart1: uart@78b0000 {

@@ -46,6 +46,7 @@ jobs:
           sed -i 's/do.devicecheck=1/do.devicecheck=0/g' AnyKernel3/anykernel.sh
           sed -i 's!BLOCK=/dev/block/platform/omap/omap_hsmmc.0/by-name/boot;!BLOCK=auto;!g' AnyKernel3/anykernel.sh
           sed -i 's/IS_SLOT_DEVICE=0;/is_slot_device=auto;/g' AnyKernel3/anykernel.sh
+          sed -i 's/do.modules=0/do.modules=1/g' AnyKernel3/anykernel.sh
           rm -rf AnyKernel3/.git* AnyKernel3/README.md
 
       - name: GetTime
@@ -58,7 +59,10 @@ jobs:
           export PATH=$(pwd)/proton-clang/bin:$PATH
           make $KERNEL_CMDLINE $KERNEL_DEFCONFIG CC="ccache clang"
           make $KERNEL_CMDLINE CC="ccache clang" -j$(nproc --all)
+          make $KERNEL_CMDLINE CC="ccache clang" INSTALL_MOD_PATH=out/modules INSTALL_MOD_STRIP=1 modules_install
           cp out/arch/arm64/boot/Image AnyKernel3
+          mkdir -p AnyKernel3/modules/vendor/lib/modules
+          find out/modules -name "*.ko" -exec cp {} AnyKernel3/modules/vendor/lib/modules/ \;
 
       - name: Upload Kernel-SU
         uses: actions/upload-artifact@v4
