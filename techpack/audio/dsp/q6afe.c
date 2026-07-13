@@ -843,7 +843,7 @@ static int afe_apr_send_pkt(void *data, wait_queue_head_t *wait)
 	return ret;
 }
 
-#ifdef CONFIG_MSM_CIRRUS_PLAYBACK
+#if 1
 extern int afe_apr_send_pkt_crus(void *data, int index, int set)
 {
     if (!set)
