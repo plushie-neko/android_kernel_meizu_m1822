@@ -6145,7 +6145,7 @@
 		dump_mem: mem_dump_region {
 			reusable;
 			compatible = "shared-dma-pool";
-			size = <0x400000>;
+			size = <0x00 0x400000>;
 			phandle = <0x100>;
 			linux,phandle = <0x100>;
 		};
