@@ -14,6 +14,8 @@
  * GNU General Public License for more details.
  */
 
+#define DEBUG 1
+
 #define pr_fmt(fmt)	"%s: " fmt, __func__
 
 #include <linux/clk.h>
