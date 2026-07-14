@@ -6047,16 +6047,6 @@
 		};
 
 		#include "m1822/msm8953-m1822-audio.dtsi"
-
-		adv_vreg: adv_vreg {
-			compatible = "regulator-fixed";
-			enable-active-high;
-			gpio = <0x14d 0x05 0x00>;
-			phandle = <0x2af>;
-			startup-delay-us = <0x190>;
-			regulator-name = "adv_vreg";
-			linux,phandle = <0x2af>;
-		};
 	};
 
 	#include "m1822/msm8953-m1822-symbols.dtsi"
