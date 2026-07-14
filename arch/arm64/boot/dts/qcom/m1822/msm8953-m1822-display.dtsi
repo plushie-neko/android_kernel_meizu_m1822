@@ -302,6 +302,7 @@
 				qcom,mdss-dsi-color-order = "rgb_swap_rgb";
 				qcom,mdss-dsi-t-clk-pre = <0x30>;
 				qcom,mdss-dsi-bl-min-level = <0x02>;
+				qcom,mdss-dsi-bl-pmic-control-type = "bl_ctrl_wled";
 				qcom,mdss-dsi-on-command-state = "dsi_lp_mode";
 				qcom,mdss-dsi-h-back-porch = <0x10>;
 				qcom,mdss-dsi-v-back-porch = <0x21>;
