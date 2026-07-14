@@ -4016,6 +4016,8 @@
 				pinctrl-1 = <0x1c6>;
 				clock-names = "byte_clk", "pixel_clk", "core_clk", "byte_clk_rcg", "pixel_clk_rcg", "pll_byte_clk_mux", "pll_pixel_clk_mux", "pll_byte_clk_src", "pll_pixel_clk_src", "pll_shadow_byte_clk_src", "pll_shadow_pixel_clk_src";
 				vddio-supply = <0xb3>;
+				vdd-supply = <0xb5>;
+				vdda-supply = <0x282>;
 				qcom,platform-strength-ctrl = [ff 06 ff 06 ff 06 ff 06 ff 00];
 				qcom,dsi-pref-sub-pan = <0x2ec>;
 				label = "MDSS DSI CTRL->0";
