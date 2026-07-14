@@ -250,8 +250,10 @@ static int pmic_gpio_write(struct pmic_gpio_state *state,
 	int ret;
 
 	ret = regmap_write(state->map, pad->base + addr, val);
-	if (ret < 0)
-		dev_err(state->dev, "write 0x%x failed\n", addr);
+	if (ret < 0) {
+		dev_err(state->dev, "write 0x%x failed (ignoring)\n", addr);
+		return 0;
+	}
 
 	return ret;
 }
