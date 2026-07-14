@@ -18,6 +18,8 @@
 /* #define DEBUG */
 /* #define VERBOSE_DEBUG */
 
+#define DEBUG 1
+
 #include <linux/blkdev.h>
 #include <linux/pagemap.h>
 #include <linux/export.h>

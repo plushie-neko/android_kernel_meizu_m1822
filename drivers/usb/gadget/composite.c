@@ -11,6 +11,8 @@
 
 /* #define VERBOSE_DEBUG */
 
+#define DEBUG 1
+
 #include <linux/kallsyms.h>
 #include <linux/kernel.h>
 #include <linux/slab.h>

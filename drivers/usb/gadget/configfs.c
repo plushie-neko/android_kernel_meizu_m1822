@@ -1,4 +1,6 @@
 #include <linux/configfs.h>
+#define DEBUG 1
+
 #include <linux/module.h>
 #include <linux/slab.h>
 #include <linux/device.h>
