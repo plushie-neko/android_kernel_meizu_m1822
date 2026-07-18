@@ -38,9 +38,7 @@
 #include <linux/notifier.h>
 #include <linux/fb.h>
 #include <linux/pm_qos.h>
-#include <linux/cpufreq.h>
-#include <linux/spi/spi.h>
-#include <linux/spi/spidev.h>
+#include <linux/platform_device.h>
 #include <linux/time.h>
 #include <linux/types.h>
 #include <linux/workqueue.h>
@@ -108,7 +106,7 @@ static int gf_parse_dts(struct gf_dev* gf_dev)
 {
 	int ret = 0;
     
-	gf_dev->pwr_gpio = of_get_named_gpio(gf_dev->spi->dev.of_node, "goodix,gpio_pwr", 0);
+	gf_dev->pwr_gpio = of_get_named_gpio(gf_dev->spi->dev.of_node, "fp,gpio_vdd3v", 0);
 	if (!gpio_is_valid(gf_dev->pwr_gpio)) {
 		gf_err("PWR GPIO is invalid.\n");
 		goto error;
@@ -119,7 +117,7 @@ static int gf_parse_dts(struct gf_dev* gf_dev)
 		goto error;
 	}
 
-	gf_dev->reset_gpio = of_get_named_gpio(gf_dev->spi->dev.of_node, "goodix,gpio_reset", 0);
+	gf_dev->reset_gpio = of_get_named_gpio(gf_dev->spi->dev.of_node, "fp,gpio_rst", 0);
 	if (!gpio_is_valid(gf_dev->reset_gpio)) {
 		gf_err("RESET GPIO is invalid.\n");
 		goto error;
@@ -132,7 +130,7 @@ static int gf_parse_dts(struct gf_dev* gf_dev)
 	
 	gpio_direction_output(gf_dev->reset_gpio, 1);
     
-	gf_dev->irq_gpio = of_get_named_gpio(gf_dev->spi->dev.of_node, "goodix,gpio_irq", 0);
+	gf_dev->irq_gpio = of_get_named_gpio(gf_dev->spi->dev.of_node, "fp,gpio_irq", 0);
 	if (!gpio_is_valid(gf_dev->irq_gpio)) {
 		gf_err("IRQ GPIO is invalid.\n");
 		goto error;
@@ -563,7 +561,7 @@ static int goodix_fb_state_chg_callback(struct notifier_block *nb,
 
 static struct class *gf_class;
 
-static int gf_probe(struct spi_device *spi)
+static int gf_probe(struct platform_device *spi)
 {
 	struct gf_dev *gf_dev = &gf;
     struct device *dev;
@@ -609,14 +607,12 @@ static int gf_probe(struct spi_device *spi)
 		mutex_unlock(&device_list_lock);
 		goto error_hw;
 	}
-
 	if (status == 0) {
 		set_bit(minor, minors);
 		list_add(&gf_dev->device_entry, &device_list);
 	} else {
 		gf_dev->devt = 0;
 	}
-
 	mutex_unlock(&device_list_lock);
 
 	if (status == 0) {
@@ -682,7 +678,7 @@ error_hw:
 	return status;
 }
 
-static int gf_remove(struct spi_device *spi)
+static int gf_remove(struct platform_device *spi)
 {
 	struct gf_dev *gf_dev = &gf;
 
@@ -714,11 +710,11 @@ static int gf_remove(struct spi_device *spi)
 }
 
 static struct of_device_id gx_match_table[] = {
-	{ .compatible = "goodix,fingerprint" },
+	{ .compatible = "qcom,fingerprint" },
 	{},
 };
 
-static struct spi_driver gf_driver = {
+static struct platform_driver gf_driver = {
 	.driver = {
 		.name = "goodix_fp",
 		.owner = THIS_MODULE,
@@ -751,11 +747,11 @@ static int __init gf_init(void)
 		gf_err("Failed to create class.\n");
 		return PTR_ERR(gf_class);
 	}
-	status = spi_register_driver(&gf_driver);
+	status = platform_driver_register(&gf_driver);
 	if (status < 0) {
 		class_destroy(gf_class);
 		unregister_chrdev(gf_major, gf_driver.driver.name);
-		gf_err("Failed to register SPI driver.\n");
+		gf_err("Failed to register platform driver.\n");
 	}
 
 	memset(&netlink_cfg, 0, sizeof(struct netlink_kernel_cfg));
@@ -785,7 +781,7 @@ static void __exit gf_exit(void)
 
 	fb_unregister_client(&gf_dev->gf_notifier);
 	gf_info("netlink: self module exited\n");
-	spi_unregister_driver(&gf_driver);
+	platform_driver_unregister(&gf_driver);
 	class_destroy(gf_class);
 	if (gf_major >= 0)
 		unregister_chrdev(gf_major, gf_driver.driver.name);

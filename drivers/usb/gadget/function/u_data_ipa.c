@@ -951,7 +951,8 @@ static void ipa_data_stop(void *param, enum usb_bam_pipe_dir dir)
 void ipa_data_flush_workqueue(void)
 {
 	pr_debug("%s(): Flushing workqueue\n", __func__);
-	flush_workqueue(ipa_data_wq);
+	if (ipa_data_wq)
+		flush_workqueue(ipa_data_wq);
 }
 
 /**

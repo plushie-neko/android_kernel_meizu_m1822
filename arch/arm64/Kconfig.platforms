@@ -494,6 +494,12 @@ config MACH_MEIZU_M1721
 	help
 	  This enables support for Meizu M6 Note.
 
+config MACH_MEIZU_M1822
+	bool "M1822 board"
+	select MACH_MEIZU_MSM8953
+	help
+	  This enables support for Meizu Note 8.
+
 endchoice
 
 endif
