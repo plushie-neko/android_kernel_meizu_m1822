@@ -7,3 +7,4 @@ config FINGERPRINT_GOODIX
 	tristate "Goodix fingerprint support"
 	help
 	  Say Y here to enable Goodix fingerprint driver support.
+source "drivers/input/fingerprint/sunwave_fp/Kconfig"
