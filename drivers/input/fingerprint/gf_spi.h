@@ -121,7 +121,7 @@ struct gf_ioc_chip_info {
 struct gf_dev {
 	dev_t devt;
 	struct list_head device_entry;
-	struct spi_device *spi;
+	struct platform_device *spi;
 	struct clk *core_clk;
 	struct clk *iface_clk;
 
