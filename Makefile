@@ -755,8 +755,7 @@ ifeq ($(call clang-ifversion, -ge, 0800, y),y)
 # Future support for zero initialization is still being debated, see
 # https://bugs.llvm.org/show_bug.cgi?id=45497. These flags are subject to being
 # renamed or dropped.
-KBUILD_CFLAGS	+= -ftrivial-auto-var-init=zero
-KBUILD_CFLAGS	+= -enable-trivial-auto-var-init-zero-knowing-it-will-be-removed-from-clang
+KBUILD_CFLAGS	+= -ftrivial-auto-var-init=zero $(call cc-option,-enable-trivial-auto-var-init-zero-knowing-it-will-be-removed-from-clang)
 else ifeq ($(call clang-ifversion, -lt, 0800, y),y)
 # This requires an external patch to clang from HardenedOS, which has been
 # superseded by -ftrivial-auto-var-init=zero above for clang 8+ and any
@@ -819,6 +818,7 @@ KBUILD_CFLAGS += $(call cc-option, -Wno-tautological-constant-out-of-range-compa
 KBUILD_CFLAGS += $(call cc-option, -Wno-sometimes-uninitialized)
 KBUILD_CFLAGS += -Wno-asm-operand-widths
 KBUILD_CFLAGS += -Wno-initializer-overrides
+KBUILD_CFLAGS += -Wno-gnu-variable-sized-type-not-at-end
 KBUILD_CFLAGS += -fno-builtin
 
 # Quiet clang warning: comparison of unsigned expression < 0 is always false
@@ -832,7 +832,7 @@ KBUILD_CFLAGS += $(call cc-option, -fcatch-undefined-behavior)
 # Future support for zero initialization is still being debated, see
 # https://bugs.llvm.org/show_bug.cgi?id=45497. These flags are subject to being
 # renamed or dropped.
-KBUILD_CFLAGS   += -ftrivial-auto-var-init=zero -enable-trivial-auto-var-init-zero-knowing-it-will-be-removed-from-clang
+KBUILD_CFLAGS   += -ftrivial-auto-var-init=zero $(call cc-option,-enable-trivial-auto-var-init-zero-knowing-it-will-be-removed-from-clang)
 else
 
 # These warnings generated too much noise in a regular build.
