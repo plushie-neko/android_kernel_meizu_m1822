@@ -33,6 +33,11 @@
 #include "msm-analog-cdc-regmap.h"
 #include "../wcd-mbhc-v2-api.h"
 
+#if IS_ENABLED(CONFIG_SND_SOC_AW87329)
+extern unsigned int xiaomi_msm8937_aw87329_audio_kspk(void);
+extern unsigned int xiaomi_msm8937_aw87329_audio_off(void);
+#endif
+
 #define DRV_NAME "pmic_analog_codec"
 #define SDM660_CDC_RATES (SNDRV_PCM_RATE_8000 | SNDRV_PCM_RATE_16000 |\
 			SNDRV_PCM_RATE_32000 | SNDRV_PCM_RATE_44100 |\
@@ -2283,8 +2288,14 @@ static int msm_anlg_cdc_codec_enable_spk_pa(struct snd_soc_dapm_widget *w,
 		msm_anlg_cdc_dig_notifier_call(codec,
 					       DIG_CDC_EVENT_RX3_MUTE_OFF);
 		snd_soc_update_bits(codec, w->reg, 0x80, 0x80);
+#if IS_ENABLED(CONFIG_SND_SOC_AW87329)
+		xiaomi_msm8937_aw87329_audio_kspk();
+#endif
 		break;
 	case SND_SOC_DAPM_PRE_PMD:
+#if IS_ENABLED(CONFIG_SND_SOC_AW87329)
+		xiaomi_msm8937_aw87329_audio_off();
+#endif
 		msm_anlg_cdc_dig_notifier_call(codec,
 					       DIG_CDC_EVENT_RX3_MUTE_ON);
 		/*
@@ -3255,8 +3266,14 @@ static int msm_anlg_cdc_codec_enable_lo_pa(struct snd_soc_dapm_widget *w,
 	case SND_SOC_DAPM_POST_PMU:
 		msm_anlg_cdc_dig_notifier_call(codec,
 				       DIG_CDC_EVENT_RX3_MUTE_OFF);
+#if IS_ENABLED(CONFIG_SND_SOC_AW87329)
+		xiaomi_msm8937_aw87329_audio_kspk();
+#endif
 		break;
 	case SND_SOC_DAPM_PRE_PMD:
+#if IS_ENABLED(CONFIG_SND_SOC_AW87329)
+		xiaomi_msm8937_aw87329_audio_off();
+#endif
 #ifdef CONFIG_MACH_MEIZU_M1721
 		usleep_range(4000, 4100);
 #endif

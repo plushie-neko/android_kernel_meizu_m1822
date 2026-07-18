@@ -1097,6 +1097,12 @@ config SND_SOC_AW8896
 	help
 	  Enables support for aw8896 series Smart PA.
 
+config SND_SOC_AW87329
+        tristate "SoC Audio for awinic aw87329 series"
+        depends on I2C
+        help
+          Enables support for aw87329 series Smart PA.
+
 config SND_SOC_TFA98XX
 	tristate "NXP Semiconductors TFA98XX amplifier"
 	depends on I2C
