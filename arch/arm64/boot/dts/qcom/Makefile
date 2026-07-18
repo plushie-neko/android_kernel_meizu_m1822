@@ -534,9 +534,6 @@ sda429-bg-dvt2-wtp-overlay.dtbo-base := sda429-bg-dvt2-wtp.dtb
 sdm429-bg-wdp-overlay.dtbo-base := sdm429-bg-wdp.dtb
 sda429-bg-wdp-overlay.dtbo-base := sda429-bg-wdp.dtb
 else
-ifeq ($(CONFIG_MACH_MEIZU_MSM8953),y)
-dtb-$(CONFIG_MACH_MEIZU_M1721) += msm8953-qrd-sku3-m1721.dtb
-else
 dtb-$(CONFIG_ARCH_MSM8953) += msm8953-cdp.dtb \
 	msm8953-mtp.dtb \
 	msm8953-ext-codec-mtp.dtb \
@@ -560,8 +557,6 @@ dtb-$(CONFIG_ARCH_MSM8953) += msm8953-cdp.dtb \
 	apq8053-lite-dragon-v2.2.1.dtb \
 	apq8053-lite-dragon-v2.3.dtb \
 	apq8053-lite-dragon-v2.4.dtb \
-	apq8053-lat-concam-dev.dtb \
-	apq8053-lat-concam-proto.dtb \
 	msm8953-pmi8940-cdp.dtb \
 	msm8953-pmi8940-mtp.dtb \
 	msm8953-pmi8937-cdp.dtb \
@@ -570,7 +565,6 @@ dtb-$(CONFIG_ARCH_MSM8953) += msm8953-cdp.dtb \
 	msm8953-pmi8937-ext-codec-mtp.dtb \
 	msm8953-pmi632-cdp-s2.dtb \
 	apq8053-batcam.dtb
-endif
 
 dtb-$(CONFIG_ARCH_MSM8937) += msm8937-pmi8950-mtp.dtb \
 	msm8937-interposer-sdm439-cdp.dtb \
@@ -681,6 +675,11 @@ dtb-$(CONFIG_ARCH_SDM429) += sdm429-mtp.dtb \
 endif
 
 dtb-$(CONFIG_ARCH_SDM845_VM) += sdm845-vm.dtb
+
+ifeq ($(CONFIG_MACH_MEIZU_MSM8953),y)
+dtb-$(CONFIG_MACH_MEIZU_M1721) += msm8953-qrd-sku3-m1721.dtb
+dtb-$(CONFIG_MACH_MEIZU_M1822) += sdm632-m1822.dtb
+endif
 
 always		:= $(dtb-y)
 subdir-y	:= $(dts-dirs)
