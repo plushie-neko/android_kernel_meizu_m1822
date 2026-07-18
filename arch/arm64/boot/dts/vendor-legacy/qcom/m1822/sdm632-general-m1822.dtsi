@@ -158,6 +158,12 @@
 		goodix,gpio_reset = <&tlmm 140 0>;
 	};
 
+	sunwave_fingerprint {
+		compatible = "qcom,fingerprint";
+		fp,gpio_irq = <&tlmm 48 0>;
+		fp,gpio_rst = <&tlmm 140 0>;
+	};
+
 	i2c@78b6000 {
         status = "ok";
 
