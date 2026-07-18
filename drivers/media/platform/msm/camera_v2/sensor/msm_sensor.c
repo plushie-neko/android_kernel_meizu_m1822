@@ -393,7 +393,7 @@ static long msm_sensor_subdev_ioctl(struct v4l2_subdev *sd,
 	case MSM_SD_UNNOTIFY_FREEZE:
 		return 0;
 	default:
-		return -ENOIOCTLCMD;
+		pr_err("msm_sensor_subdev_ioctl: default cmd=%x\n", cmd); return -ENOIOCTLCMD;
 	}
 }
 

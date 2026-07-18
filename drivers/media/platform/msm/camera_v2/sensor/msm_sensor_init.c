@@ -113,13 +113,19 @@ static long msm_sensor_init_subdev_ioctl(struct v4l2_subdev *sd,
 		return -EINVAL;
 	}
 
+	pr_err("msm_sensor_init_subdev_ioctl: received cmd=0x%08x\n", cmd);
+
 	switch (cmd) {
+	case 0xc00856dd:
+		rc = 0;
+		pr_err("0xc00856dd: returning 0 (success) to bypass custom ioctl\n");
+		break;
 	case VIDIOC_MSM_SENSOR_INIT_CFG:
 		rc = msm_sensor_driver_cmd(s_init, arg);
 		break;
 
 	default:
-		pr_err_ratelimited("default\n");
+		pr_err_ratelimited("default cmd=%x cfgtype=%d\n", cmd, ((int *)arg)[0]);
 		break;
 	}
 
@@ -137,7 +143,13 @@ static long msm_sensor_init_subdev_do_ioctl(
 		(struct sensor_init_cfg_data32 *)arg;
 	struct sensor_init_cfg_data sensor_init_data;
 
+	pr_err("msm_sensor_init_subdev_do_ioctl: received cmd=0x%08x\n", cmd);
+
 	switch (cmd) {
+	case 0xc00856dd:
+		rc = 0;
+		pr_err("0xc00856dd: returning 0 (success) to bypass custom ioctl\n");
+		return rc;
 	case VIDIOC_MSM_SENSOR_INIT_CFG32:
 		memset(&sensor_init_data, 0, sizeof(sensor_init_data));
 		sensor_init_data.cfgtype = u32->cfgtype;
