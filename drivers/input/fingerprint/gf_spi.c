@@ -442,7 +442,7 @@ static long gf_compat_ioctl(struct file *filp, unsigned int cmd, unsigned long a
 static irqreturn_t gf_irq(int irq, void *handle)
 {
 	char temp = GF_NET_EVENT_IRQ;
-	gf_info("enter\n");
+//	gf_info("enter\n");
 	__pm_wakeup_event(&fp_wakeup_source, WAKEUP_HOLD_TIME);
 	sendnlmsg(&temp);
 
