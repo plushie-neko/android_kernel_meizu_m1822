@@ -3803,6 +3803,11 @@ wcnss_wlan_probe(struct platform_device *pdev)
 
 	penv->pdev = pdev;
 
+	if (of_property_read_bool(pdev->dev.of_node, "qcom,has-pronto-hw"))
+		penv->wcnss_hw_type = WCNSS_PRONTO_HW;
+	else
+		penv->wcnss_hw_type = WCNSS_RIVA_HW;
+
 	penv->user_cal_data =
 		devm_kzalloc(&pdev->dev, MAX_CALIBRATED_DATA_SIZE, GFP_KERNEL);
 	if (!penv->user_cal_data) {
