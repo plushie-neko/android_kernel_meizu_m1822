@@ -410,12 +410,12 @@ static long gf_ioctl(struct file *filp, unsigned int cmd, unsigned long arg)
 		gf_info("operation: 0x%x\n", info.operation);
 		break;
     case GF_IOC_ENABLE_SPI_CLK:
-		gf_info("GF_IOC_ENABLE_SPI_CLK\n");
-		gf_info("Doesn't support control clock.\n");
+		// gf_info("GF_IOC_ENABLE_SPI_CLK\n");
+		// gf_info("Doesn't support control clock.\n");
 		break;
 	case GF_IOC_DISABLE_SPI_CLK:
-		gf_info("GF_IOC_DISABLE_SPI_CLK\n");
-		gf_info("Doesn't support control clock.\n");
+		// gf_info("GF_IOC_DISABLE_SPI_CLK\n");
+		// gf_info("Doesn't support control clock.\n");
 		break;
     case GF_IOC_ENTER_SLEEP_MODE:
 		gf_info("GF_IOC_ENTER_SLEEP_MODE\n");
