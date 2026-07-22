@@ -680,6 +680,7 @@ ifeq ($(CONFIG_MACH_MEIZU_MSM8953),y)
 dtb-$(CONFIG_MACH_MEIZU_M1721) += msm8953-qrd-sku3-m1721.dtb
 dtb-$(CONFIG_MACH_MEIZU_M1822) += sdm632-m1822.dtb
 dtbo-$(CONFIG_MACH_MEIZU_M1822) += sdm632-m1822-overlay.dtbo
+sdm632-m1822-overlay.dtbo-base := sdm632-m1822.dtb
 endif
 
 always		:= $(dtb-y)
