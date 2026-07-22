@@ -678,6 +678,7 @@ dtb-$(CONFIG_ARCH_SDM845_VM) += sdm845-vm.dtb
 
 ifeq ($(CONFIG_MACH_MEIZU_MSM8953),y)
 dtb-y :=
+dtbo-y :=
 dtb-$(CONFIG_MACH_MEIZU_M1721) += msm8953-qrd-sku3-m1721.dtb
 dtb-$(CONFIG_MACH_MEIZU_M1822) += sdm632-m1822.dtb
 dtbo-$(CONFIG_MACH_MEIZU_M1822) += sdm632-m1822-overlay.dtbo
