@@ -257,6 +257,10 @@ int v4l2_device_register_subdev_nodes(struct v4l2_device *v4l2_dev)
 			goto clean_up;
 		}
 		sd->devnode = vdev;
+		/* Override entity name with device node name for camera HAL */
+#if defined(CONFIG_MEDIA_CONTROLLER)
+		snprintf(sd->name, sizeof(sd->name), "%s", dev_name(&vdev->dev));
+#endif
 #if defined(CONFIG_MEDIA_CONTROLLER)
 		sd->entity.info.dev.major = VIDEO_MAJOR;
 		sd->entity.info.dev.minor = vdev->minor;
