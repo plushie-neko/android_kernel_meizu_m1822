@@ -1749,7 +1749,7 @@ static int lpm_suspend_enter(suspend_state_t state)
 	 * which resources are enabled and preventing the system level
 	 * LPMs (XO and Vmin).
 	 */
-	clock_debug_print_enabled();
+	clock_debug_print_enabled(true);
 	regulator_debug_print_enabled();
 
 	cpu_prepare(lpm_cpu, idx, false);
