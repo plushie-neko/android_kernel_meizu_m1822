@@ -967,18 +967,6 @@
 
 	/delete-node/ devfreq-cpufreq;
 	devfreq-cpufreq {
-		mincpubw-cpufreq {
-			target-dev = <&mincpubw>;
-			cpu-to-dev-map-0 =
-				<  614400 1611>,
-				< 1363200 3221>,
-				< 1804800 5859>;
-			cpu-to-dev-map-4 =
-				< 1094400 1611>,
-				< 1401600 3221>,
-				< 1804800 5859>,
-				< 2016000 7104>;
-		};
 
 		cci-cpufreq {
 			target-dev = <&cci_cache>;
@@ -1014,7 +1002,7 @@
 	/delete-node/ case-therm-step;
 };
 
-#include "sdm632-coresight.dtsi"
+/* #include "sdm632-coresight.dtsi" */
 
 /* GPU Overrides*/
 &msm_gpu {
