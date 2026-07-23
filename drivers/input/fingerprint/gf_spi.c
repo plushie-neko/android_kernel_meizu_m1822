@@ -197,6 +197,12 @@ static int gf_hw_reset(struct gf_dev *gf_dev, unsigned int delay_ms)
 		gf_err("gf_dev is null.\n");
 		return -1;
 	}
+	if (gpio_is_valid(gf_dev->pwr_gpio)) {
+		gpio_set_value(gf_dev->pwr_gpio, 0);
+		msleep(20);
+		gpio_set_value(gf_dev->pwr_gpio, 1);
+		msleep(20);
+	}
 	gpio_direction_output(gf_dev->reset_gpio, 1);
 	gpio_set_value(gf_dev->reset_gpio, 0);
 	usleep_range(3000, 4000);
