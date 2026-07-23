@@ -281,6 +281,7 @@ config ARCH_MSM8953
 config ARCH_SDM450
 	bool "Enable Support for Qualcomm Technologies Inc. SDM450"
 	depends on ARCH_QCOM
+	select COMMON_CLK
 	select COMMON_CLK_QCOM
 	select QCOM_GDSC
 	select CPU_FREQ_QCOM
