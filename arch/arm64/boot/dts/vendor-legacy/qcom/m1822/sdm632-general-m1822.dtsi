@@ -16,6 +16,7 @@
 	qrd_batterydata: qcom,battery-data {
 		qcom,batt-id-range-pct = <24>;
 
+
 		#include "sdm632-batterydata-m1822.dtsi"
 	};
 
@@ -156,12 +157,16 @@
 		compatible = "goodix,fingerprint";
 		goodix,gpio_irq = <&tlmm 48 0>;
 		goodix,gpio_reset = <&tlmm 140 0>;
+		fp,gpio_vdd3v = <&tlmm 139 0>;
 	};
 
-	sunwave_fingerprint {
+	fingerprint_m1822 {
 		compatible = "qcom,fingerprint";
 		fp,gpio_irq = <&tlmm 48 0>;
 		fp,gpio_rst = <&tlmm 140 0>;
+		fp,gpio_vdd3v = <&tlmm 139 0>;
+		pinctrl-names = "default";
+		pinctrl-0 = <&spi3_default &spi3_cs0_active>;
 	};
 
 	i2c@78b6000 {
@@ -346,3 +351,4 @@
 		polling-delay = <1000>;
 	};
 };
+
